@@ -1,0 +1,13 @@
+/admin/uploads
+/admin/temp
+/logs
+/cache
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.env
+.idea/
+.vscode/
+node_modules/
+build/
