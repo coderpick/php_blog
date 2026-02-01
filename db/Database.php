@@ -1,13 +1,33 @@
 <?php
-include_once "config.php";
-try{  
+include_once __DIR__ . "/config.php";
 
-    $dns = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
-    $conn = new PDO($dns, DB_USER, DB_PASS);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+class Database
+{
+    private static $instance = null;
+    private $conn;
 
-  //  echo "✅ Connected Successfully!";
+    private function __construct()
+    {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
+            $this->conn = new PDO($dsn, DB_USER, DB_PASS);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
 
-}catch(PDOException $e){
-    echo $e->getMessage();
+    public static function getInstance()
+    {
+        if (self::$instance == null) {
+            self::$instance = new Database();
+        }
+        return self::$instance;
+    }
+
+    public function getConnection()
+    {
+        return $this->conn;
+    }
 }
