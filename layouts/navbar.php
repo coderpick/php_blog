@@ -73,12 +73,8 @@
 
 <script>
     // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+    // Mobile menu toggle logic removed (moved to footer.php)
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
 
     // User dropdown toggle
     const userMenuBtn = document.getElementById('userMenuBtn');

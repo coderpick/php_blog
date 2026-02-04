@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $old = $_POST;
     } else {
         if (Auth::attempt($_POST['email'], $_POST['password'])) {
-            header("Location: index.php");
+            header("Location: admin/dashboard.php");
             exit;
         } else {
             $errors['system'] = "Invalid credentials.";
