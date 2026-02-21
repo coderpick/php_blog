@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/admin/categories/index.php">
                         <i class="bi bi-folder"></i>
                         <span>Categories</span>
                     </a>

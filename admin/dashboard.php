@@ -484,7 +484,7 @@
         </div>
     </div>
 
-  <?php  include $real_path . '/layouts/script.php' ?>    
+  <?php include __DIR__ . '/layouts/script.php'; ?>
 </body>
 
 </html>
